@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Acci</title>
+ </head>
+<body>
+        <h2>Welcome to US Car Accident Prediction</h2>
+        <h3>Enter info</h3>
+        <form action = "{{ url_for('Acciclassify') }}" method="POST">
+            <table border="1" style="border-color:gray; border-collapse:collapse;" cellpadding="5" cellspacing="5">
+                <tr>     
+                    <td><h4>severity</h4> 
+                        <input type="number" name="severity" min="1" max="5" > </td>             
+                    <td><h4>city</h4>
+                        <select name = "city">
+                            <option value="Dublin">Dublin</option>
+                            <option value="Dayton">Dayton</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </td>
+                    <td><h4>state</h4>
+                        <select name = "state">
+                            <option value="OH">OH</option>
+                            <option value="CT">CT</option>             
+                        </select>
+                    </td>
+                    <td><h4>pressure</h4>
+                        <select name = "pressure"> 
+                            <option value="29">29</option>
+                            <option value="22">22</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>windspeed</h4>
+                        <select name = "windspeed">
+                            <option value="11">11</option> 
+                            <option value="9">9</option>
+                        </select>
+                    </td>              
+                    <td><h4>WeatherCondition</h4>
+                        <select name = "WeatherCondition">
+                            <option value="light_rain">light_rain</option> 
+                            <option value="overcast">overcast</option>
+                            <option value="snow">snow</option>
+                            <option value="light_snow">light_snow</option>
+                        </select>
+                    </td>
+                    <td><h4>SunriseSunset</h4>
+                        <select name = "SunriseSunset">
+                            <option value="Night">Night</option>
+                            <option value="Day">Day</option>
+                        </select>
+                    </td>
+                    <td><h4>Humidity</h4>
+                        <select name = "Humidity">
+                            <option value="52">52</option> 
+                            <option value="42">42</option>
+                        </select>
+                    </td>            
+                </tr>
+            </table>
+            <!-- <input type="hidden" id="forminput" name="forminput"  >    -->        
+            <p><input type="submit" value="Accident prediction"></p>
+            {% if (results) %}
+             <h3> Accident prediction: "YES"  </h3>
+             <p> for following features: </p>
+             <p> severity : {{severity}} city: {{city}} state: {{state}} pressure: {{pressure}} </p>
+             <p> windspeed: {{windspeed}} WeatherCondition: {{WeatherCondition}} SunriseSunset: {{SunriseSunset}} Humidity: {{Humidity}}</p>
+            {% endif %}
+        </form>
+</body>
+</html>
